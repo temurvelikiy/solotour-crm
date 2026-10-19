@@ -52,7 +52,7 @@ export function Modal({ title, onClose, children, foot, wide }) {
  * Generic form modal.
  * fields: [{key,label,type:'text'|'number'|'date'|'datetime'|'time'|'select'|'textarea'|'email'|'tel'|'checkbox', options:[{value,label}]|string[], required, full}]
  */
-export function FormModal({ title, fields, initial = {}, onSave, onClose, submitLabel = 'Saqlash', wide }) {
+export function FormModal({ title, fields, initial = {}, onSave, onClose, submitLabel = 'Saqlash', wide, note }) {
   const [v, setV] = useState(() => {
     const o = { ...initial }
     fields.forEach((f) => { if (o[f.key] === undefined) o[f.key] = f.type === 'checkbox' ? false : f.default ?? (f.type === 'select' ? optVal(f.options?.[0]) : '') })
@@ -77,6 +77,7 @@ export function FormModal({ title, fields, initial = {}, onSave, onClose, submit
               <Input f={f} value={v[f.key]} onChange={(x) => set(f.key, x)} />
             </div>
           ))}
+          {note && <div className="full">{note(v)}</div>}
           {err && <div className="full req">{err}</div>}
         </div>
         <div className="modal-foot">

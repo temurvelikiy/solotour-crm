@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { useStore, dominantColor, fmt, fdate } from '../store'
 import { PRICE_PER_USER, isFree, monthlyTotal, PAY_WITHIN_HOURS, tgHandle } from '../billing'
 import { PageHead } from '../components/ui'
+import UserFlow from '../components/UserFlow'
 
 const TABS = [['profile', 'Profil', User], ['company', 'Kompaniya', Building2], ['billing', "Tarif va to'lov", CreditCard], ['integrations', 'Integratsiyalar', Workflow], ['view', "Ko'rinish", Palette]]
 
@@ -16,6 +17,7 @@ export default function SettingsPage() {
   const [p, setP] = useState({ name: me.name, email: me.email })
   const [c, setC] = useState({ company: db.settings.company, phone: db.settings.phone, email: db.settings.email, address: db.settings.address, rate: db.settings.rate })
   const [tg, setTg] = useState(db.settings.telegramToken)
+  const [userForm, setUserForm] = useState(null)
   const [payTg, setPayTg] = useState(db.settings.paymentTelegram || '')
   const [pw, setPw] = useState({ a: '', b: '', c: '' })
   const [msg, setMsg] = useState('')
@@ -59,11 +61,24 @@ export default function SettingsPage() {
               <div><label>USD kursi (so'm)</label><input type="number" value={c.rate} onChange={(e) => setC({ ...c, rate: e.target.value })} /></div>
             </div></>}
           {tab === 'billing' && <>
-            <h3>Tarif va to'lov</h3>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, flexWrap: 'wrap', marginBottom: 16 }}>
+              <h3 style={{ margin: 0 }}>Tarif va to'lov</h3>
+              <button className="btn primary" onClick={() => setUserForm({})}>+ Foydalanuvchi qo'shish</button>
+            </div>
             <div className="grid g3" style={{ marginBottom: 20 }}>
               <div className="card"><div className="muted small">Narx</div><div style={{ fontSize: 22, fontWeight: 700 }}>{fmt(PRICE_PER_USER)} so'm</div><div className="muted small">1 foydalanuvchi uchun, oyiga</div></div>
               <div className="card"><div className="muted small">Pullik foydalanuvchilar</div><div style={{ fontSize: 22, fontWeight: 700 }}>{db.users.filter((u) => !isFree(u.role)).length}</div><div className="muted small">Admin hisobi bepul</div></div>
               <div className="card" style={{ background: 'var(--primary-soft)' }}><div className="muted small">Oylik to'lov</div><div style={{ fontSize: 22, fontWeight: 700, color: 'var(--primary)' }}>{fmt(monthlyTotal(db.users))} so'm</div><div className="muted small">hozirgi foydalanuvchilar bo'yicha</div></div>
+            </div>
+            <h4 style={{ margin: '0 0 10px' }}>To'lov muddati bo'yicha narx</h4>
+            <div className="grid g3" style={{ marginBottom: 24 }}>
+              {[1, 3, 6].map((m) => (
+                <div className="card" key={m}>
+                  <div style={{ fontWeight: 600, marginBottom: 6 }}>{m} oylik</div>
+                  <div style={{ fontSize: 22, fontWeight: 700 }}>{fmt(monthlyTotal(db.users) * m)} so'm</div>
+                  <div className="muted small">barcha pullik foydalanuvchilar uchun</div>
+                  <div className="muted small" style={{ marginTop: 6 }}>1 foydalanuvchi: {fmt(PRICE_PER_USER * m)} so'm</div>
+                </div>))}
             </div>
             <div className="table-wrap"><table>
               <thead><tr><th>Foydalanuvchi</th><th>Rol</th><th>Qo'shilgan sana</th><th style={{ textAlign: 'right' }}>Oyiga</th></tr></thead>
@@ -81,6 +96,7 @@ export default function SettingsPage() {
               <div className="muted small" style={{ marginTop: 6 }}>Yangi foydalanuvchi qo'shilganda to'lov uchun shu Telegram'ga yo'naltiriladi ({PAY_WITHIN_HOURS} soat ichida to'lash so'raladi).</div>
             </div>
             <p className="muted small" style={{ marginTop: 14 }}>Hisob foydalanuvchilar soniga qarab avtomatik hisoblanadi: yangi foydalanuvchi qo'shsangiz yoki o'chirsangiz, oylik to'lov o'zgaradi. Admin uchun to'lov yo'q.</p>
+            <UserFlow form={userForm} onClose={() => setUserForm(null)} />
           </>}
           {tab === 'integrations' && <>
             <h3 style={{ display: 'flex', gap: 8, alignItems: 'center' }}><Send size={20} /> Telegram bot</h3>

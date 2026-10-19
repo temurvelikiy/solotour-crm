@@ -525,6 +525,16 @@ so'm to'lanadi. ~ сум. ~ UZS. ~ сом. ~ сӯм.
 soat ichida to'lov qiling. To'lov uchun Telegram orqali bog'laning. ~ часа. Для оплаты свяжитесь через Telegram. ~ hours. Contact us via Telegram to pay. ~ сағат ішінде төлем жасаңыз. Төлем үшін Telegram арқылы байланысыңыз. ~ соат пардохт кунед. Барои пардохт тавассути Telegram тамос гиред.
 To'lov uchun Telegram ~ Telegram для оплаты ~ Telegram for payment ~ Төлем үшін Telegram ~ Telegram барои пардохт
 To'lov uchun Telegram hali sozlanmagan. Sozlamalar → Tarif va to'lov bo'limida kiriting. ~ Telegram для оплаты ещё не настроен. Укажите его в Настройки → Тариф и оплата. ~ Payment Telegram is not set yet. Enter it in Settings → Plan & billing. ~ Төлем үшін Telegram әлі бапталмаған. Баптаулар → Тариф және төлем бөлімінде енгізіңіз. ~ Telegram барои пардохт ҳанӯз танзим нашудааст. Онро дар Танзимот → Тариф ва пардохт ворид кунед.
++ Foydalanuvchi qo'shish ~ + Добавить пользователя ~ + Add user ~ + Пайдаланушы қосу ~ + Иловаи истифодабаранда
+To'lov muddati bo'yicha narx ~ Цена по сроку оплаты ~ Price by payment period ~ Төлем мерзімі бойынша баға ~ Нарх аз рӯи мӯҳлати пардохт
+1 oylik ~ 1 месяц ~ 1 month ~ 1 айлық ~ 1 моҳа
+3 oylik ~ 3 месяца ~ 3 months ~ 3 айлық ~ 3 моҳа
+6 oylik ~ 6 месяцев ~ 6 months ~ 6 айлық ~ 6 моҳа
+barcha pullik foydalanuvchilar uchun ~ для всех платных пользователей ~ for all paid users ~ барлық ақылы пайдаланушылар үшін ~ барои ҳамаи истифодабарандагони пулакӣ
+1 foydalanuvchi: ~ 1 пользователь: ~ 1 user: ~ 1 пайдаланушы: ~ 1 истифодабаранда:
+Admin foydalanuvchi uchun to'lov yo'q (bepul). ~ Для пользователя-админа оплаты нет (бесплатно). ~ No charge for an Admin user (free). ~ Әкімші пайдаланушы үшін төлем жоқ (тегін). ~ Барои истифодабарандаи админ пардохт нест (ройгон).
+Bu foydalanuvchi uchun oyiga ~ За этого пользователя в месяц ~ For this user per month ~ Бұл пайдаланушы үшін айына ~ Барои ин истифодабаранда дар як моҳ
+so'm qo'shiladi. Jami oylik to'lov: ~ сум добавится. Итого ежемесячный платёж: ~ UZS will be added. Total monthly payment: ~ сом қосылады. Жалпы айлық төлем: ~ сӯм илова мешавад. Пардохти умумии моҳона:
 Admin ~ Админ ~ Admin ~ Әкімші ~ Админ
 Manager ~ Менеджер ~ Manager ~ Менеджер ~ Менеҷер
 `
