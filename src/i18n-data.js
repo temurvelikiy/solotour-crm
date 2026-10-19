@@ -535,6 +535,11 @@ barcha pullik foydalanuvchilar uchun ~ для всех платных польз
 Admin foydalanuvchi uchun to'lov yo'q (bepul). ~ Для пользователя-админа оплаты нет (бесплатно). ~ No charge for an Admin user (free). ~ Әкімші пайдаланушы үшін төлем жоқ (тегін). ~ Барои истифодабарандаи админ пардохт нест (ройгон).
 Bu foydalanuvchi uchun oyiga ~ За этого пользователя в месяц ~ For this user per month ~ Бұл пайдаланушы үшін айына ~ Барои ин истифодабаранда дар як моҳ
 so'm qo'shiladi. Jami oylik to'lov: ~ сум добавится. Итого ежемесячный платёж: ~ UZS will be added. Total monthly payment: ~ сом қосылады. Жалпы айлық төлем: ~ сӯм илова мешавад. Пардохти умумии моҳона:
+1 yillik ~ 1 год ~ 1 year ~ 1 жылдық ~ 1 сола
+oy bonus ~ мес. бонус ~ months bonus ~ ай бонус ~ моҳ бонус
+oylik to'lov — ~ мес. оплаты — ~ months paid — ~ ай төлем — ~ моҳ пардохт —
+oy foydalanasiz ~ мес. пользования ~ months of use ~ ай пайдаланасыз ~ моҳ истифода мекунед
+tejaysiz: ~ экономия: ~ you save: ~ үнемдейсіз: ~ сарфа мекунед:
 Admin ~ Админ ~ Admin ~ Әкімші ~ Админ
 Manager ~ Менеджер ~ Manager ~ Менеджер ~ Менеҷер
 `
