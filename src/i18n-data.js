@@ -517,6 +517,14 @@ Jami: ~ Итого: ~ Total: ~ Барлығы: ~ Ҳамагӣ:
 Hisob foydalanuvchilar soniga qarab avtomatik hisoblanadi: yangi foydalanuvchi qo'shsangiz yoki o'chirsangiz, oylik to'lov o'zgaradi. Admin uchun to'lov yo'q. ~ Сумма считается автоматически по числу пользователей: при добавлении или удалении пользователя ежемесячный платёж меняется. Для админа оплата не взимается. ~ The amount is calculated automatically from the number of users: adding or removing a user changes the monthly payment. Admins are not charged. ~ Сома пайдаланушылар санына қарай автоматты есептеледі: пайдаланушы қосу немесе жою айлық төлемді өзгертеді. Әкімші үшін төлем жоқ. ~ Маблағ аз рӯи шумораи истифодабарандагон худкор ҳисоб мешавад: илова ё нест кардани истифодабаранда пардохти моҳонаро иваз мекунад. Барои админ пардохт нест.
 Admin uchun to'lov yo'q. Boshqa rollardagi har bir foydalanuvchi uchun oyiga ~ Для админа оплаты нет. За каждого пользователя с другой ролью в месяц ~ Admins are not charged. Every user with another role costs per month ~ Әкімші үшін төлем жоқ. Басқа рөлдегі әр пайдаланушы үшін айына ~ Барои админ пардохт нест. Барои ҳар истифодабарандаи нақши дигар дар як моҳ
 so'm hisoblanadi. ~ сум. ~ UZS. ~ сом есептеледі. ~ сӯм ҳисоб мешавад.
+Foydalanuvchi qo'shildi ~ Пользователь добавлен ~ User added ~ Пайдаланушы қосылды ~ Истифодабаранда илова шуд
+Keyinroq ~ Позже ~ Later ~ Кейінірек ~ Баъдтар
+Telegramda to'lov qilish ~ Оплатить через Telegram ~ Pay via Telegram ~ Telegram арқылы төлеу ~ Пардохт тавассути Telegram
+tizimga qo'shildi. Bu foydalanuvchi uchun oyiga ~ добавлен в систему. За этого пользователя в месяц оплачивается ~ was added to the system. For this user per month you pay ~ жүйеге қосылды. Бұл пайдаланушы үшін айына төленеді ~ ба система илова шуд. Барои ин истифодабаранда дар як моҳ пардохт мешавад
+so'm to'lanadi. ~ сум. ~ UZS. ~ сом. ~ сӯм.
+soat ichida to'lov qiling. To'lov uchun Telegram orqali bog'laning. ~ часа. Для оплаты свяжитесь через Telegram. ~ hours. Contact us via Telegram to pay. ~ сағат ішінде төлем жасаңыз. Төлем үшін Telegram арқылы байланысыңыз. ~ соат пардохт кунед. Барои пардохт тавассути Telegram тамос гиред.
+To'lov uchun Telegram ~ Telegram для оплаты ~ Telegram for payment ~ Төлем үшін Telegram ~ Telegram барои пардохт
+To'lov uchun Telegram hali sozlanmagan. Sozlamalar → Tarif va to'lov bo'limida kiriting. ~ Telegram для оплаты ещё не настроен. Укажите его в Настройки → Тариф и оплата. ~ Payment Telegram is not set yet. Enter it in Settings → Plan & billing. ~ Төлем үшін Telegram әлі бапталмаған. Баптаулар → Тариф және төлем бөлімінде енгізіңіз. ~ Telegram барои пардохт ҳанӯз танзим нашудааст. Онро дар Танзимот → Тариф ва пардохт ворид кунед.
 Admin ~ Админ ~ Admin ~ Әкімші ~ Админ
 Manager ~ Менеджер ~ Manager ~ Менеджер ~ Менеҷер
 `

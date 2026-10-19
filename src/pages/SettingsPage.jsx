@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { User, Building2, Workflow, Palette, Save, Send, Upload, CreditCard } from 'lucide-react'
 import { useEffect } from 'react'
 import { useStore, dominantColor, fmt, fdate } from '../store'
-import { PRICE_PER_USER, isFree, monthlyTotal } from '../billing'
+import { PRICE_PER_USER, isFree, monthlyTotal, PAY_WITHIN_HOURS, tgHandle } from '../billing'
 import { PageHead } from '../components/ui'
 
 const TABS = [['profile', 'Profil', User], ['company', 'Kompaniya', Building2], ['billing', "Tarif va to'lov", CreditCard], ['integrations', 'Integratsiyalar', Workflow], ['view', "Ko'rinish", Palette]]
@@ -16,6 +16,7 @@ export default function SettingsPage() {
   const [p, setP] = useState({ name: me.name, email: me.email })
   const [c, setC] = useState({ company: db.settings.company, phone: db.settings.phone, email: db.settings.email, address: db.settings.address, rate: db.settings.rate })
   const [tg, setTg] = useState(db.settings.telegramToken)
+  const [payTg, setPayTg] = useState(db.settings.paymentTelegram || '')
   const [pw, setPw] = useState({ a: '', b: '', c: '' })
   const [msg, setMsg] = useState('')
   const [logoColor, setLogoColor] = useState(null)
@@ -71,6 +72,14 @@ export default function SettingsPage() {
                   <td style={{ textAlign: 'right' }}>{isFree(u.role) ? <span className="badge s-green">Bepul</span> : <b>{fmt(PRICE_PER_USER)} so'm</b>}</td></tr>))}
                 <tr><td colSpan={3} style={{ textAlign: 'right' }}><b>Jami:</b></td><td style={{ textAlign: 'right' }}><b>{fmt(monthlyTotal(db.users))} so'm</b></td></tr>
               </tbody></table></div>
+            <div style={{ marginTop: 20, maxWidth: 420 }}>
+              <label>To'lov uchun Telegram</label>
+              <div style={{ display: 'flex', gap: 10 }}>
+                <input value={payTg} onChange={(e) => setPayTg(e.target.value)} placeholder="@username" />
+                <button className="btn primary" onClick={() => { setSettings({ paymentTelegram: tgHandle(payTg) }); setPayTg(tgHandle(payTg)); ok('Saqlandi') }}><Save size={16} /> Saqlash</button>
+              </div>
+              <div className="muted small" style={{ marginTop: 6 }}>Yangi foydalanuvchi qo'shilganda to'lov uchun shu Telegram'ga yo'naltiriladi ({PAY_WITHIN_HOURS} soat ichida to'lash so'raladi).</div>
+            </div>
             <p className="muted small" style={{ marginTop: 14 }}>Hisob foydalanuvchilar soniga qarab avtomatik hisoblanadi: yangi foydalanuvchi qo'shsangiz yoki o'chirsangiz, oylik to'lov o'zgaradi. Admin uchun to'lov yo'q.</p>
           </>}
           {tab === 'integrations' && <>

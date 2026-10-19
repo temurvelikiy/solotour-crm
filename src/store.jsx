@@ -14,7 +14,7 @@ const readPrefs = () => { try { return JSON.parse(localStorage.getItem(PREFS)) |
 const writePrefs = (p) => { try { localStorage.setItem(PREFS, JSON.stringify({ ...readPrefs(), ...p })) } catch {} }
 
 const COLS = ['clients', 'leads', 'deals', 'tours', 'bookings', 'payments', 'visas', 'partners', 'tasks', 'reminders', 'meetings', 'calls', 'statuses', 'fields', 'services', 'users']
-const DEFAULT_SETTINGS = { company: 'CRM', phone: '', email: '', address: '', rate: RATE_DEFAULT, theme: 'light', lang: 'uz', logo: '', colorMode: 'default', brand: '#2563eb', telegramToken: '', telegramOn: false }
+const DEFAULT_SETTINGS = { company: 'CRM', phone: '', email: '', address: '', rate: RATE_DEFAULT, theme: 'light', lang: 'uz', logo: '', colorMode: 'default', brand: '#2563eb', telegramToken: '', telegramOn: false, paymentTelegram: '' }
 const emptyDb = () => ({ ...Object.fromEntries(COLS.map((c) => [c, []])), me: null, settings: { ...DEFAULT_SETTINGS, ...readPrefs() } })
 
 class NetErr extends Error {}
