@@ -540,6 +540,15 @@ oy bonus ~ мес. бонус ~ months bonus ~ ай бонус ~ моҳ бону
 oylik to'lov — ~ мес. оплаты — ~ months paid — ~ ай төлем — ~ моҳ пардохт —
 oy foydalanasiz ~ мес. пользования ~ months of use ~ ай пайдаланасыз ~ моҳ истифода мекунед
 tejaysiz: ~ экономия: ~ you save: ~ үнемдейсіз: ~ сарфа мекунед:
+Narxni hisoblash ~ Расчёт стоимости ~ Price calculator ~ Бағаны есептеу ~ Ҳисоби нарх
+Foydalanuvchilar soni: ~ Количество пользователей: ~ Number of users: ~ Пайдаланушылар саны: ~ Шумораи истифодабарандагон:
+so'm/oy ~ сум/мес ~ UZS/mo ~ сом/ай ~ сӯм/моҳ
+1 yil ~ 1 год ~ 1 year ~ 1 жыл ~ 1 сол
+2 yil ~ 2 года ~ 2 years ~ 2 жыл ~ 2 сол
+oy ~ мес. ~ mo. ~ ай ~ моҳ
+Summa: ~ Сумма: ~ Total: ~ Сома: ~ Маблағ:
+Buyurtma berish ~ Оформить заказ ~ Place order ~ Тапсырыс беру ~ Фармоиш додан
+To'lov uchun Telegram hali sozlanmagan. ~ Telegram для оплаты ещё не настроен. ~ Payment Telegram is not set yet. ~ Төлем үшін Telegram әлі бапталмаған. ~ Telegram барои пардохт ҳанӯз танзим нашудааст.
 Admin ~ Админ ~ Admin ~ Әкімші ~ Админ
 Manager ~ Менеджер ~ Manager ~ Менеджер ~ Менеҷер
 `

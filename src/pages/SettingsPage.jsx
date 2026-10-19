@@ -3,9 +3,10 @@ import { useSearchParams } from 'react-router-dom'
 import { User, Building2, Workflow, Palette, Save, Send, Upload, CreditCard } from 'lucide-react'
 import { useEffect } from 'react'
 import { useStore, dominantColor, fmt, fdate } from '../store'
-import { PRICE_PER_USER, isFree, monthlyTotal, PAY_WITHIN_HOURS, tgHandle, PLANS, planTotal } from '../billing'
+import { PRICE_PER_USER, isFree, monthlyTotal, PAY_WITHIN_HOURS, tgHandle } from '../billing'
 import { PageHead } from '../components/ui'
 import UserFlow from '../components/UserFlow'
+import PriceCalculator from '../components/PriceCalculator'
 
 const TABS = [['profile', 'Profil', User], ['company', 'Kompaniya', Building2], ['billing', "Tarif va to'lov", CreditCard], ['integrations', 'Integratsiyalar', Workflow], ['view', "Ko'rinish", Palette]]
 
@@ -70,22 +71,9 @@ export default function SettingsPage() {
               <div className="card"><div className="muted small">Pullik foydalanuvchilar</div><div style={{ fontSize: 22, fontWeight: 700 }}>{db.users.filter((u) => !isFree(u.role)).length}</div><div className="muted small">Admin hisobi bepul</div></div>
               <div className="card" style={{ background: 'var(--primary-soft)' }}><div className="muted small">Oylik to'lov</div><div style={{ fontSize: 22, fontWeight: 700, color: 'var(--primary)' }}>{fmt(monthlyTotal(db.users))} so'm</div><div className="muted small">hozirgi foydalanuvchilar bo'yicha</div></div>
             </div>
-            <h4 style={{ margin: '0 0 10px' }}>To'lov muddati bo'yicha narx</h4>
-            <div className="grid g4" style={{ marginBottom: 24 }}>
-              {PLANS.map((pl) => {
-                const bonus = pl.months - pl.pay
-                const label = pl.months === 12 ? '1 yillik' : `${pl.months} oylik`
-                return (
-                  <div className="card" key={pl.months} style={bonus ? { borderColor: '#16a34a', background: 'color-mix(in srgb,#16a34a 7%,var(--card))' } : undefined}>
-                    <div style={{ fontWeight: 600, marginBottom: 6, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>{label}{bonus > 0 && <span className="badge s-green">{bonus} oy bonus</span>}</div>
-                    <div style={{ fontSize: 22, fontWeight: 700 }}>{fmt(planTotal(db.users, pl))} so'm</div>
-                    {bonus > 0 && <div className="small" style={{ color: '#16a34a', marginTop: 2 }}>{pl.pay} oylik to'lov — {pl.months} oy foydalanasiz</div>}
-                    {bonus > 0 && <div className="muted small"><s>{fmt(monthlyTotal(db.users) * pl.months)} so'm</s> · tejaysiz: {fmt(monthlyTotal(db.users) * bonus)} so'm</div>}
-                    <div className="muted small" style={{ marginTop: 6 }}>barcha pullik foydalanuvchilar uchun</div>
-                    <div className="muted small">1 foydalanuvchi: {fmt(PRICE_PER_USER * pl.pay)} so'm</div>
-                  </div>)
-              })}
-            </div>
+            <h4 style={{ margin: '0 0 10px' }}>Narxni hisoblash</h4>
+            <PriceCalculator />
+            <div style={{ height: 24 }} />
             <div className="table-wrap"><table>
               <thead><tr><th>Foydalanuvchi</th><th>Rol</th><th>Qo'shilgan sana</th><th style={{ textAlign: 'right' }}>Oyiga</th></tr></thead>
               <tbody>{db.users.map((u) => (

@@ -13,6 +13,8 @@ export const PLANS = [
   { months: 1, pay: 1 },
   { months: 3, pay: 3 },
   { months: 6, pay: 6 },
-  { months: 12, pay: 10 },
+  { months: 9, pay: 8 }, // 1 month gift
+  { months: 12, pay: 10 }, // 2 months gift
+  { months: 24, pay: 18 }, // 6 months gift
 ]
 export const planTotal = (users, plan) => monthlyTotal(users) * plan.pay
