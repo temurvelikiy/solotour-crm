@@ -549,6 +549,40 @@ oy ~ мес. ~ mo. ~ ай ~ моҳ
 Summa: ~ Сумма: ~ Total: ~ Сома: ~ Маблағ:
 Buyurtma berish ~ Оформить заказ ~ Place order ~ Тапсырыс беру ~ Фармоиш додан
 To'lov uchun Telegram hali sozlanmagan. ~ Telegram для оплаты ещё не настроен. ~ Payment Telegram is not set yet. ~ Төлем үшін Telegram әлі бапталмаған. ~ Telegram барои пардохт ҳанӯз танзим нашудааст.
+Formalar va landing ~ Формы и лендинги ~ Forms & landing pages ~ Формалар және лендингтер ~ Шаклҳо ва лендингҳо
+Lead formalari va landing sahifalar ~ Формы заявок и лендинги ~ Lead forms and landing pages ~ Лид формалары және лендинг беттері ~ Шаклҳои лид ва саҳифаҳои лендинг
+Havola yoki sayt orqali lid yig'ing — arizalar avtomatik Lidlar bo'limiga tushadi ~ Собирайте лиды по ссылке или с сайта — заявки автоматически попадают в раздел «Лиды» ~ Collect leads via a link or your site — submissions go straight into Leads ~ Сілтеме немесе сайт арқылы лид жинаңыз — өтініштер автоматты түрде «Лидтер» бөліміне түседі ~ Лидҳоро тавассути истинод ё сайт ҷамъ кунед — дархостҳо худкор ба бахши «Лидҳо» меафтанд
+Yangi forma ~ Новая форма ~ New form ~ Жаңа форма ~ Шакли нав
+Yangi forma / landing ~ Новая форма / лендинг ~ New form / landing ~ Жаңа форма / лендинг ~ Шакл / лендинги нав
+Formani tahrirlash ~ Редактирование формы ~ Edit form ~ Форманы өңдеу ~ Таҳрири шакл
+Formani ~ Форму ~ Form ~ Форманы ~ Шаклро
+Hali forma yaratilmagan. «Yangi forma» tugmasini bosing. ~ Форм пока нет. Нажмите «Новая форма». ~ No forms yet. Click “New form”. ~ Әлі форма жасалмаған. «Жаңа форма» түймесін басыңыз. ~ Ҳоло шакл сохта нашудааст. Тугмаи «Шакли нав»-ро пахш кунед.
+Forma nomi (faqat siz uchun) ~ Название формы (только для вас) ~ Form name (for you only) ~ Форма атауы (тек өзіңіз үшін) ~ Номи шакл (танҳо барои шумо)
+Sarlavha ~ Заголовок ~ Title ~ Тақырып ~ Сарлавҳа
+Qisqa tavsif ~ Краткое описание ~ Short description ~ Қысқаша сипаттама ~ Тавсифи кӯтоҳ
+Afzalliklar (har biri yangi qatorda) ~ Преимущества (каждое с новой строки) ~ Benefits (one per line) ~ Артықшылықтар (әрқайсысы жаңа жолда) ~ Бартарӣ (ҳар кадом дар сатри нав)
+Rasm havolasi (ixtiyoriy) ~ Ссылка на картинку (необязательно) ~ Image link (optional) ~ Сурет сілтемесі (міндетті емес) ~ Истиноди акс (ихтиёрӣ)
+Tugma matni ~ Текст кнопки ~ Button text ~ Түйме мәтіні ~ Матни тугма
+Yuborilgandan keyingi xabar ~ Сообщение после отправки ~ Message after submit ~ Жібергеннен кейінгі хабар ~ Паём пас аз фиристодан
+Lidlar uchun mas'ul menejer ~ Ответственный менеджер для лидов ~ Account manager for leads ~ Лидтерге жауапты менеджер ~ Менеҷери масъул барои лидҳо
+Forma maydonlari ~ Поля формы ~ Form fields ~ Форма өрістері ~ Майдонҳои шакл
+Forma faol (havola ishlaydi) ~ Форма активна (ссылка работает) ~ Form is active (link works) ~ Форма белсенді (сілтеме жұмыс істейді) ~ Шакл фаъол (истинод кор мекунад)
+Ko'rinishi ~ Предпросмотр ~ Preview ~ Көрінісі ~ Намуд
+O'chirilgan ~ Отключена ~ Disabled ~ Өшірілген ~ Хомӯш
+Faol ~ Активна ~ Active ~ Белсенді ~ Фаъол
+ko'rish ~ просмотров ~ views ~ көру ~ дида шуд
+lid ~ лидов ~ leads ~ лид ~ лид
+konversiya ~ конверсия ~ conversion ~ конверсия ~ конверсия
+Havola ~ Ссылка ~ Link ~ Сілтеме ~ Истинод
+Ochish ~ Открыть ~ Open ~ Ашу ~ Кушодан
+Saytga ulash ~ Вставить на сайт ~ Embed on site ~ Сайтқа қосу ~ Пайваст ба сайт
+Nusxa olish ~ Копировать ~ Copy ~ Көшіру ~ Нусха гирифтан
+Nusxalandi ~ Скопировано ~ Copied ~ Көшірілді ~ Нусха гирифта шуд
+Landing sahifa havolasi ~ Ссылка на лендинг ~ Landing page link ~ Лендинг беті сілтемесі ~ Истиноди саҳифаи лендинг
+Saytingizga joylash kodi (faqat forma) ~ Код для вставки на ваш сайт (только форма) ~ Code to embed on your site (form only) ~ Сайтыңызға орналастыру коды (тек форма) ~ Рамз барои гузоштан ба сайти шумо (танҳо шакл)
+Kodni nusxalash ~ Копировать код ~ Copy code ~ Кодты көшіру ~ Нусхаи рамз
+Forma nomini kiriting ~ Введите название формы ~ Enter the form name ~ Форма атауын енгізіңіз ~ Номи шаклро ворид кунед
+Kamida ism, telefon yoki email maydonini yoqing ~ Включите хотя бы поле имени, телефона или email ~ Enable at least the name, phone or email field ~ Кемінде аты, телефон немесе email өрісін қосыңыз ~ Ақаллан майдони ном, телефон ё email-ро фаъол кунед
 Admin ~ Админ ~ Admin ~ Әкімші ~ Админ
 Manager ~ Менеджер ~ Manager ~ Менеджер ~ Менеҷер
 `

@@ -3,7 +3,7 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import {
   LayoutDashboard, BarChart3, Users, Target, Handshake, CreditCard, CheckSquare, Bell, CalendarCheck, Calendar,
   Phone, Briefcase, Settings, UserPlus, Tags, Wrench, ChevronLeft, ChevronRight, Search, Sun, Moon, ChevronDown, Clock, X,
-  Map, Ticket, FileCheck, Building2, LogOut, Send, Menu,
+  Map, Ticket, FileCheck, Building2, LogOut, Send, Menu, LayoutTemplate,
 } from 'lucide-react'
 import { useStore } from '../store'
 import { LANGS } from '../i18n'
@@ -13,6 +13,7 @@ const NAV = [
   ['/analytics', 'Analitika', BarChart3],
   ['/clients', 'Mijozlar', Users],
   ['/leads', 'Lidlar', Target],
+  ['/forms', 'Formalar va landing', LayoutTemplate],
   ['/deals', 'Bitimlar', Handshake],
   ['/payments', "To'lovlar", CreditCard],
   ['/tasks', 'Vazifalar', CheckSquare],
@@ -69,10 +70,10 @@ export default function Layout() {
           </button>
         </div>
         <nav className="nav" onClick={() => setOpen(false)}>
-          <Group items={NAV.slice(0, 12)} />
+          <Group items={NAV.filter((n) => n[0] !== '/settings')} />
           <div className="nav-section">TURISTIK MODULLAR</div>
           <Group items={TOUR} />
-          <Group items={NAV.slice(12)} />
+          <Group items={NAV.filter((n) => n[0] === '/settings')} />
           {me.role === 'Admin' && <><div className="nav-section">ADMIN PANEL</div><Group items={ADMIN} /></>}
         </nav>
         <div className="side-box">

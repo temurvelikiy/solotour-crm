@@ -33,7 +33,7 @@ const ROLES = ['Admin', 'Manager', 'Operator', 'Buxgalter']
 
 // which roles may write which collections (Admin: everything)
 const WRITE = {
-  Manager: ['clients', 'leads', 'deals', 'payments', 'tasks', 'reminders', 'meetings', 'calls', 'services', 'tours', 'bookings', 'visas', 'partners'],
+  Manager: ['clients', 'leads', 'deals', 'payments', 'tasks', 'reminders', 'meetings', 'calls', 'services', 'tours', 'bookings', 'visas', 'partners', 'forms'],
   Operator: ['clients', 'leads', 'calls', 'tasks', 'reminders', 'meetings', 'visas'],
   Buxgalter: ['payments', 'bookings', 'deals'],
 }
@@ -41,11 +41,11 @@ const canWrite = (role, col) => role === 'Admin' || (WRITE[role] || []).includes
 
 // ---------- auth ----------
 const attempts = new Map()
-function throttled(key) {
+function throttled(key, max = 8, windowMs = 60_000) {
   const now = Date.now()
-  const a = (attempts.get(key) || []).filter((t) => now - t < 60_000)
+  const a = (attempts.get(key) || []).filter((t) => now - t < windowMs)
   attempts.set(key, a)
-  return a.length >= 8
+  return a.length >= max
 }
 
 app.post('/api/auth/login', (req, res) => {
@@ -93,6 +93,57 @@ app.post('/api/auth/reset', (req, res) => {
   if (!userId) return fail(res, 400, "Havola yaroqsiz yoki muddati o'tgan. Qaytadan so'rang")
   setPassword(userId, String(password))
   res.json({ ok: true })
+})
+
+// ---- public lead forms / landing pages (no login) ----
+const findForm = (slug) => (/^[a-z0-9-]{3,80}$/i.test(String(slug)) ? listDocs('forms').find((f) => f.slug === slug && f.active !== false) : null)
+const clip = (v, n) => String(v ?? '').trim().slice(0, n)
+
+app.get('/api/public/forms/:slug', (req, res) => {
+  const f = findForm(req.params.slug)
+  if (!f) return fail(res, 404, 'Forma topilmadi')
+  if (req.query.preview !== '1') putDoc('forms', { ...f, views: (f.views || 0) + 1 })
+  const st = getMeta('settings', {})
+  res.json({
+    title: f.title, subtitle: f.subtitle, benefits: f.benefits || [], image: f.image || '', buttonText: f.buttonText,
+    color: f.color, successMessage: f.successMessage, fields: (f.fields || []).filter((x) => x.enabled),
+    company: st.company || '', logo: st.logo && st.logo.length < 300_000 ? st.logo : '',
+  })
+})
+
+app.post('/api/public/forms/:slug/submit', (req, res) => {
+  const key = `form|${req.ip}`
+  if (throttled(key, 6, 10 * 60_000)) return fail(res, 429, "Juda ko'p so'rov yuborildi. Keyinroq urinib ko'ring")
+  const f = findForm(req.params.slug)
+  if (!f) return fail(res, 404, 'Forma topilmadi')
+  const { answers = {}, utm = {}, hp = '' } = req.body || {}
+  if (hp) return res.json({ ok: true, message: f.successMessage }) // honeypot filled: bot, pretend success
+  attempts.get(key).push(Date.now())
+
+  const clean = {}
+  for (const fld of f.fields || []) {
+    if (!fld.enabled) continue
+    const v = clip(answers[fld.key], fld.key === 'message' ? 2000 : 200)
+    if (fld.required && !v) return fail(res, 400, `"${fld.label}" majburiy`)
+    if (v) clean[fld.key] = v
+  }
+  if (clean.email && !/^\S+@\S+\.\S+$/.test(clean.email)) return fail(res, 400, "Email noto'g'ri")
+  if (clean.phone && clean.phone.replace(/\D/g, '').length < 7) return fail(res, 400, "Telefon raqami noto'g'ri")
+  if (!clean.name && !clean.phone && !clean.email) return fail(res, 400, "Ma'lumot kiriting")
+
+  const extra = (f.fields || []).filter((x) => x.enabled && !['name', 'phone', 'email'].includes(x.key) && clean[x.key]).map((x) => `${x.label}: ${clean[x.key]}`)
+  const utmLine = Object.entries(utm || {}).filter(([k, v]) => /^utm_/.test(k) && v).map(([k, v]) => `${k}=${clip(v, 60)}`).join(', ')
+  const lead = {
+    id: uid(), name: clean.name || clean.phone || clean.email, phone: clean.phone || '', email: clean.email || '',
+    source: clip(utm.utm_source, 40) || 'Forma', priority: "O'rta", status: 'Yangi', value: 0, score: 50,
+    manager: f.manager || '', tags: ['forma', f.name].filter(Boolean),
+    notes: [`Forma: ${f.name}`, ...extra, utmLine && `UTM: ${utmLine}`].filter(Boolean).join('\n'),
+    created: new Date().toISOString(),
+  }
+  putDoc('leads', lead)
+  const fresh = getDoc('forms', f.id) || f
+  putDoc('forms', { ...fresh, submissions: (fresh.submissions || 0) + 1 })
+  res.json({ ok: true, message: f.successMessage })
 })
 
 function auth(req, res, next) {

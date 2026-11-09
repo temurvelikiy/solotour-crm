@@ -36,7 +36,7 @@ export function consumeResetToken(token) {
 
 export const COLLECTIONS = [
   'clients', 'leads', 'deals', 'tours', 'bookings', 'payments', 'visas', 'partners', 'tasks',
-  'reminders', 'meetings', 'calls', 'statuses', 'fields', 'services',
+  'reminders', 'meetings', 'calls', 'statuses', 'fields', 'services', 'forms',
 ]
 
 const q = {

@@ -13,8 +13,8 @@ const LOCAL_KEYS = ['theme', 'lang'] // per-browser preferences, never sent to t
 const readPrefs = () => { try { return JSON.parse(localStorage.getItem(PREFS)) || {} } catch { return {} } }
 const writePrefs = (p) => { try { localStorage.setItem(PREFS, JSON.stringify({ ...readPrefs(), ...p })) } catch {} }
 
-const COLS = ['clients', 'leads', 'deals', 'tours', 'bookings', 'payments', 'visas', 'partners', 'tasks', 'reminders', 'meetings', 'calls', 'statuses', 'fields', 'services', 'users']
-const DEFAULT_SETTINGS = { company: 'CRM', phone: '', email: '', address: '', rate: RATE_DEFAULT, theme: 'light', lang: 'uz', logo: '', colorMode: 'default', brand: '#2563eb', telegramToken: '', telegramOn: false, paymentTelegram: '' }
+const COLS = ['clients', 'leads', 'deals', 'tours', 'bookings', 'payments', 'visas', 'partners', 'tasks', 'reminders', 'meetings', 'calls', 'statuses', 'fields', 'services', 'forms', 'users']
+const DEFAULT_SETTINGS = { company: 'CRM', phone: '', email: '', address: '', rate: RATE_DEFAULT, theme: 'light', lang: 'uz', logo: '', colorMode: 'default', brand: '#2563eb', telegramToken: '', telegramOn: false, paymentTelegram: 'tmr75538' }
 const emptyDb = () => ({ ...Object.fromEntries(COLS.map((c) => [c, []])), me: null, settings: { ...DEFAULT_SETTINGS, ...readPrefs() } })
 
 class NetErr extends Error {}

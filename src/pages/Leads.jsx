@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import { Upload, Download, RefreshCw, Plus, Phone, Mail, User, Clock, LayoutGrid, List, Columns, Users, Link2, Check, X, Repeat, Pencil, Trash2, UserCheck } from 'lucide-react'
+import { LayoutTemplate, Upload, Download, RefreshCw, Plus, Phone, Mail, User, Clock, LayoutGrid, List, Columns, Users, Link2, Check, X, Repeat, Pencil, Trash2, UserCheck } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useStore, fmt, fdate } from '../store'
 import { PageHead, Stat, SearchInput, Seg, Chips, FormModal, Badge, exportCSV, importCSV, confirmDel, Empty } from '../components/ui'
 
 const STAGES = ['Yangi', "Bog'lanildi", 'Mos', 'Mos emas', 'Konvertatsiya']
 const PRIO = { Shoshilinch: 'red', Yuqori: 'orange', "O'rta": 'yellow', Past: 'gray' }
 const PRIO_DOT = { Shoshilinch: '#ef4444', Yuqori: '#f97316', "O'rta": '#eab308', Past: '#94a3b8' }
-const SRC = ['Instagram', 'Telegram', 'Sayt', "Qo'lda", 'Tavsiya', "Qo'ng'iroq"]
+const SRC = ['Instagram', 'Telegram', 'Sayt', 'Forma', "Qo'lda", 'Tavsiya', "Qo'ng'iroq"]
 
 export default function Leads() {
   const { db, add, update, remove } = useStore()
@@ -76,6 +77,7 @@ export default function Leads() {
         <button className="btn" onClick={() => importCSV((rows) => rows.forEach((r) => add('leads', { status: 'Yangi', priority: "O'rta", source: "Qo'lda", tags: [], ...r })))}><Upload size={16} /> Import</button>
         <button className="btn" onClick={() => exportCSV('lidlar', list.map(({ tags, ...r }) => r))}><Download size={16} /> Eksport</button>
         <button className="btn" onClick={() => window.location.reload()}><RefreshCw size={16} /> Yangilash</button>
+        <Link to="/forms" className="btn"><LayoutTemplate size={16} /> Formalar va landing</Link>
         <button className="btn primary" onClick={() => setForm({})}><Plus size={16} /> Yangi lead</button>
       </PageHead>
       <div className="grid g6" style={{ marginBottom: 20 }}>

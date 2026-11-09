@@ -27,6 +27,8 @@ import Visas from './pages/Visas'
 import Partners from './pages/Partners'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
+import LeadForms from './pages/LeadForms'
+import PublicForm from './pages/PublicForm'
 import { setLanguage } from './i18n'
 
 function I18n() {
@@ -43,7 +45,11 @@ function Guard({ children }) {
   return auth ? children : <Navigate to="/login" replace />
 }
 
+// Public landing page / embeddable lead form: /f/:slug (no login, no app shell)
+const publicSlug = window.location.pathname.match(/^\/f\/([\w-]+)\/?$/)?.[1]
+
 createRoot(document.getElementById('root')).render(
+  publicSlug ? <StrictMode><PublicForm slug={publicSlug} /></StrictMode> :
   <StrictMode>
     <StoreProvider>
       <I18n />
@@ -57,6 +63,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="analytics" element={<Analytics />} />
             <Route path="clients" element={<Clients />} />
             <Route path="leads" element={<Leads />} />
+            <Route path="forms" element={<LeadForms />} />
             <Route path="deals" element={<Deals />} />
             <Route path="payments" element={<Payments />} />
             <Route path="tasks" element={<Tasks />} />
